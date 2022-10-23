@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include 'general/partials/head.html' %}
+
+<body>
+
+  <!-- ======= Header ======= -->
+  {% include 'general/partials/header.html' %}
+  <!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    {% include 'general/partials/breadcrumbs.html' %}
+    <!-- End Breadcrumbs -->
+
+    <!-- Add scores -->
+   {% if request.user.is_authenticated %}
+   <h2>Add your scores</h2>
+   <form action="" method="post">
+       {% csrf_token %}
+       <table>
+           {{ scores.as_table }}
+       </table>
+       <input type="Submit" value="Add scores" onclick="return confirm('Are you sure?')">
+   </form>
+
+
+   <h2><a href="{% url 'logout-page' %}">LOGOUT</a></h2>
+    {% else %}
+    <p>Welcome, new user.<br> <a href="{% url 'login-page' %}">PLEASE LOGIN</a></p>
+
+   {% endif %}
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+{% include 'general/partials/footer.html' %}
+<!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+{% include 'general/partials/scripts.html' %}
+
+</body>
+
+</html>

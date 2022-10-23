@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include 'general/partials/head.html' %}
+
+<body>
+
+  <!-- ======= Header ======= -->
+  {% include 'general/partials/header.html' %}
+  <!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    {% include 'general/partials/breadcrumbs.html' %}
+    <!-- End Breadcrumbs -->
+     
+        <style>
+          #intro {
+            background-image: url(https://mdbootstrap.com/img/new/fluid/city/008.jpg);
+            height: 100vh;
+          }
+    
+          /* Height for devices larger than 576px */
+          @media (min-width: 992px) {
+            #intro {
+              margin-top: -58.59px;
+            }
+          }
+    
+          .navbar .nav-link {
+            color: #fff !important;
+          }
+        </style>
+     
+        <div id="intro" class="bg-image shadow-2-strong">
+          <div class="mask d-flex align-items-center h-100" style="background-color: #fff;">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-xl-5 col-md-8">
+
+                     <!-- Login -->
+                  <form action="" method="post" class="bg-white rounded shadow-5-strong p-5">
+                      {% csrf_token %}
+                     <div class="form-outline mb-4">
+                        <label class="form-label" for="form1Example1">Email address</label>
+                       <input type="text" name="username" id="form1Example1" class="form-control" required>
+                     </div>
+                     <div class="form-outline mb-4">
+                        <label class="form-label" for="form1Example2">Password</label>
+                        <input type="text" name="password" id="form1Example2" class="form-control" required>
+                     </div>
+                     <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+{% include 'general/partials/footer.html' %}
+<!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+{% include 'general/partials/scripts.html' %}
+<!-- Custom scripts -->
+<script type="text/javascript" src={% static "account/js/mdb.min.js" %}></script>
+<script type="text/javascript" src={% static "account/js/script.js" %}></script>
+
+</body>
+
+</html>
